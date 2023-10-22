@@ -50,7 +50,7 @@ vmovdqa64 -0x240(%rbx),%zmm0
 
 With AddressSanitizer's *stack-use-after-return* check **disabled** at runtime
 (by setting `ASAN_OPTIONS=detect_stack_use_after_return=0` in the environment),
--0x240(%rbx) is a valid address that points into the stack frame and is a
+`-0x240(%rbx)` is a valid address that points into the stack frame and is a
 multiple of 64 bytes.
 
 With the *stack-use-after-return* check **enabled**
