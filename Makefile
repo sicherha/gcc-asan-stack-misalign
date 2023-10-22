@@ -17,3 +17,8 @@ check-avx512f:
 
 clean:
 	${RM} repro
+	${RM} a-repro.* a.out
+
+a-repro.i: repro.c
+	${CC} -v -save-temps ${CFLAGS} $^
+	sed -i '/^#/d' $@
