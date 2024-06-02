@@ -1,5 +1,7 @@
 # Stack-misalignment bug in GCC's AddressSanitizer
 
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=110027
+
 Under certain conditions, GCC's AddressSanitizer implementation generates
 accesses to memory addresses that are not suitably aligned for AVX-512,
 resulting in a segmentation fault.
