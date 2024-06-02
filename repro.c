@@ -36,10 +36,8 @@ static void blake3_compress_subtree_wide(unsigned long input_len,
                                          unsigned char *out) {
   if (input_len <= BLAKE3_CHUNK_LEN) {
     unsigned long input_position = 0;
-    unsigned long chunks_array_len = 0;
     while (input_len - input_position >= BLAKE3_CHUNK_LEN) {
       input_position += BLAKE3_CHUNK_LEN;
-      chunks_array_len += 1;
     }
 
     blake3_chunk_state chunk_state = {};
