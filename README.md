@@ -37,10 +37,10 @@ make run-nofail
 
 ## Analysis
 
-GCC compiles the `memcpy(out, cv_array, 2 * BLAKE3_OUT_LEN);` call at the end of
-`blake3_compress_subtree_wide()` into a `vmovdqa64`/`vmovdqu64` pair. The
-`vmovdqa64` instruction requires its memory operand to be aligned on a 64-byte
-boundary, whereas `vmovdqu64` does not demand a particular alignment.
+GCC compiles the `__builtin_memcpy(out, cv_array, 2 * BLAKE3_OUT_LEN);` call at
+the end of `blake3_compress_subtree_wide()` into a `vmovdqa64`/`vmovdqu64` pair.
+The`vmovdqa64` instruction requires its memory operand to be aligned on a
+64-byte boundary, whereas `vmovdqu64` does not demand a particular alignment.
 
 The load part looks as follows:
 
